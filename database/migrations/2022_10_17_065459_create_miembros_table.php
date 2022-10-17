@@ -20,7 +20,11 @@ return new class extends Migration
             $table->date('feNacimiento');
             $table->unsignedBigInteger('idEquipo');
 
-            $table->foreign('idEquipo')->references('id')->on('equipos');
+            $table->foreign('idEquipo')
+            ->references('id')
+            ->on('equipos')
+            ->onDelete('CASCADE')
+            ->onUpdate('CASCADE');
 
             $table->timestamps();
         });

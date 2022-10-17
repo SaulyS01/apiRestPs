@@ -56,9 +56,14 @@ class EquipoController extends Controller
      * @param  \App\Models\Equipo  $equipo
      * @return \Illuminate\Http\Response
      */
-    public function show(Equipo $equipo)
+    public function show($id)
     {
-        //
+        $equipo = Equipo::find($id);
+        return response()->json([
+            'estado' => true,
+            'msg' => "Equipo seleccionado!",
+            'equipo' => $equipo
+        ], 200);
     }
 
     /**
@@ -69,7 +74,7 @@ class EquipoController extends Controller
      */
     public function edit(Equipo $equipo)
     {
-        //
+
     }
 
     /**
